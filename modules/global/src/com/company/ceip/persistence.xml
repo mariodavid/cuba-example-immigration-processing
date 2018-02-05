@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="cuba-example-immigration-processing"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.company.ceip.entity.Client</class>
+        <class>com.company.ceip.entity.Matter</class>
+        <class>com.company.ceip.entity.Applicant</class>
+        <class>com.company.ceip.entity.Visa</class>
+        <class>com.company.ceip.entity.Passport</class>
+        <class>com.company.ceip.entity.Address</class>
+        <class>com.company.ceip.entity.Employment</class>
+        <class>com.company.ceip.entity.Education</class>
+    </persistence-unit>
+</persistence>

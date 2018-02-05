@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.company.ceip.entity.Address"
+          extends="_local"
+          name="address-view">
+        <property name="applicant"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.ceip.entity.Visa"
+          extends="_local"
+          name="visa-view">
+        <property name="applicant"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.ceip.entity.Passport"
+          extends="_local"
+          name="passport-view">
+        <property name="applicant"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.ceip.entity.Employment"
+          extends="_local"
+          name="employment-view">
+        <property name="applicant"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.ceip.entity.Client"
+          extends="_local"
+          name="client-view">
+        <property name="matters"
+                  view="matter-view"/>
+    </view>
+    <view class="com.company.ceip.entity.Education"
+          extends="_local"
+          name="education-view">
+        <property name="applicant"
+                  view="_minimal"/>
+    </view>
+    <view class="com.company.ceip.entity.Applicant"
+          extends="_local"
+          name="applicant-view">
+        <property name="matter"
+                  view="_minimal"/>
+        <property name="visa"
+                  view="visa-view"/>
+        <property name="passports"
+                  view="passport-view"/>
+        <property name="addresses"
+                  view="address-view"/>
+        <property name="employments"
+                  view="employment-view"/>
+        <property name="educations"
+                  view="education-view"/>
+    </view>
+    <view class="com.company.ceip.entity.Matter"
+          extends="_local"
+          name="matter-view">
+        <property name="client"
+                  view="_minimal"/>
+        <property name="applicants"
+                  view="applicant-view"/>
+    </view>
+    <view class="com.company.ceip.entity.Client"
+          extends="_local"
+          name="client-view">
+        <property name="matters"
+                  view="matter-view">
+            <property name="client"
+                      view="_minimal">
+                <property name="name"/>
+            </property>
+            <property name="applicants"
+                      view="applicant-view">
+                <property name="matter"
+                          view="_minimal"/>
+                <property name="visa"
+                          view="visa-view">
+                    <property name="applicant"
+                              view="_minimal"/>
+                    <property name="validFrom"/>
+                    <property name="validUntil"/>
+                </property>
+                <property name="passports"
+                          view="passport-view">
+                    <property name="applicant"
+                              view="_minimal"/>
+                </property>
+            </property>
+        </property>
+    </view>
+</views>

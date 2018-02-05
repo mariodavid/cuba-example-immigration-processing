@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.ceip.web.education.EducationEdit"
+        datasource="educationDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.ceip.web.education">
+    <dsContext>
+        <datasource id="educationDs"
+                    class="com.company.ceip.entity.Education"
+                    view="education-view"/>
+    </dsContext>
+    <dialogMode forceDialog="true"
+                height="AUTO"
+                modal="true"
+                width="600"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="educationDs">
+            <column width="250px">
+                <field property="school"/>
+                <field property="graduation"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

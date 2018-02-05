@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.ceip.web.matter.MatterEdit"
+        datasource="matterDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.ceip.web.matter">
+    <dsContext>
+        <datasource id="matterDs"
+                    class="com.company.ceip.entity.Matter"
+                    view="matter-view">
+            <collectionDatasource id="applicantsDs"
+                                  property="applicants">
+                <collectionDatasource id="addressesDs" property="addresses" />
+                <collectionDatasource id="educationsDs" property="educations" />
+                <collectionDatasource id="employmentsDs" property="employments" />
+                <collectionDatasource id="passportsDs" property="passports" />
+                <collectionDatasource id="visaDs" property="visa" />
+            </collectionDatasource>
+        </datasource>
+        <collectionDatasource id="clientsDs"
+                              class="com.company.ceip.entity.Client"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from ceip$Client e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tabSheet"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="matterDs">
+            <column width="250px">
+                <field property="name"/>
+                <field optionsDatasource="clientsDs"
+                       property="client"/>
+            </column>
+        </fieldGroup>
+        <tabSheet id="tabSheet">
+            <tab id="applicantsTab"
+                 caption="Applicants"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <table id="applicantsTable"
+                       height="100%"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="matter"/>
+                        <column id="name"/>
+                    </columns>
+                    <rows datasource="applicantsDs"/>
+                    <buttonsPanel>
+                        <button action="applicantsTable.create"/>
+                        <button action="applicantsTable.edit"/>
+                        <button action="applicantsTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </tab>
+
+        </tabSheet>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

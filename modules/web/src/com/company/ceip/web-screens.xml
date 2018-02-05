@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <include file="com/company/ceip/screens.xml"/>
+    <screen id="ceip$Visa.edit"
+            template="com/company/ceip/web/visa/visa-edit.xml"/>
+    <screen id="ceip$Passport.edit"
+            template="com/company/ceip/web/passport/passport-edit.xml"/>
+    <screen id="ceip$Employment.edit"
+            template="com/company/ceip/web/employment/employment-edit.xml"/>
+    <screen id="ceip$Education.edit"
+            template="com/company/ceip/web/education/education-edit.xml"/>
+    <screen id="ceip$Address.edit"
+            template="com/company/ceip/web/address/address-edit.xml"/>
+    <screen id="ceip$Applicant.browse"
+            template="com/company/ceip/web/applicant/applicant-browse.xml"/>
+    <screen id="ceip$Applicant.edit"
+            template="com/company/ceip/web/applicant/applicant-edit.xml"/>
+    <screen id="ceip$Matter.browse"
+            template="com/company/ceip/web/matter/matter-browse.xml"/>
+    <screen id="ceip$Matter.edit"
+            template="com/company/ceip/web/matter/matter-edit.xml"/>
+    <screen id="ceip$Client.browse"
+            template="com/company/ceip/web/client/client-browse.xml"/>
+    <screen id="ceip$Client.edit"
+            template="com/company/ceip/web/client/client-edit.xml"/>
+    <screen id="mainWindow"
+            template="com/company/ceip/web/screens/ext-mainwindow.xml"/>
+</screen-config>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.ceip.web.matter.MatterBrowse"
+        focusComponent="mattersTable"
+        lookupComponent="mattersTable"
+        messagesPack="com.company.ceip.web.matter">
+    <dsContext>
+        <groupDatasource id="mattersDs"
+                         class="com.company.ceip.entity.Matter"
+                         view="matter-view">
+            <query>
+                <![CDATA[select e from ceip$Matter e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="mattersTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="mattersTable"
+                datasource="mattersDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="mattersTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="client"/>
+            </columns>
+            <rows datasource="mattersDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="mattersTable.create"/>
+                <button id="editBtn"
+                        action="mattersTable.edit"/>
+                <button id="removeBtn"
+                        action="mattersTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

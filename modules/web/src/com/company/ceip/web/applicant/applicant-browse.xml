@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.ceip.web.applicant.ApplicantBrowse"
+        focusComponent="applicantsTable"
+        lookupComponent="applicantsTable"
+        messagesPack="com.company.ceip.web.applicant">
+    <dsContext>
+        <groupDatasource id="applicantsDs"
+                         class="com.company.ceip.entity.Applicant"
+                         view="applicant-view">
+            <query>
+                <![CDATA[select e from ceip$Applicant e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="applicantsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="applicantsTable"
+                datasource="applicantsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="applicantsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="matter"/>
+                <column id="name"/>
+            </columns>
+            <rows datasource="applicantsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="applicantsTable.create"/>
+                <button id="editBtn"
+                        action="applicantsTable.edit"/>
+                <button id="removeBtn"
+                        action="applicantsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

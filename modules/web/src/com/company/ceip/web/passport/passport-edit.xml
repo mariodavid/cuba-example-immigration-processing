@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.ceip.web.passport.PassportEdit"
+        datasource="passportDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.ceip.web.passport">
+    <dsContext>
+        <datasource id="passportDs"
+                    class="com.company.ceip.entity.Passport"
+                    view="passport-view"/>
+    </dsContext>
+    <dialogMode forceDialog="true"
+                height="AUTO"
+                modal="true"
+                width="600"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="passportDs">
+            <column width="250px">
+                <field property="passportId"/>
+                <field property="holder"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.ceip.web.applicant.ApplicantEdit"
+        datasource="applicantDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.ceip.web.applicant">
+    <dsContext>
+        <datasource id="applicantDs"
+                    class="com.company.ceip.entity.Applicant"
+                    view="applicant-view">
+            <collectionDatasource id="visaDs"
+                                  property="visa"/>
+            <collectionDatasource id="passportsDs"
+                                  property="passports"/>
+            <collectionDatasource id="addressesDs"
+                                  property="addresses"/>
+            <collectionDatasource id="employmentsDs"
+                                  property="employments"/>
+            <collectionDatasource id="educationsDs"
+                                  property="educations"/>
+        </datasource>
+        <collectionDatasource id="mattersDs"
+                              class="com.company.ceip.entity.Matter"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from ceip$Matter e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="tabSheet"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="applicantDs">
+            <column width="250px">
+                <field optionsDatasource="mattersDs"
+                       property="matter"/>
+                <field property="name"/>
+            </column>
+        </fieldGroup>
+        <tabSheet id="tabSheet">
+            <tab id="visaTab"
+                 caption="Visa"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <table id="visaTable"
+                       height="100%"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="validFrom"/>
+                        <column id="validUntil"/>
+                    </columns>
+                    <rows datasource="visaDs"/>
+                    <buttonsPanel>
+                        <button action="visaTable.create"/>
+                        <button action="visaTable.edit"/>
+                        <button action="visaTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </tab>
+            <tab id="passportTab"
+                 caption="Passports"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <table id="passportsTable"
+                       height="100%"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="passportId"/>
+                        <column id="holder"/>
+                    </columns>
+                    <rows datasource="passportsDs"/>
+                    <buttonsPanel>
+                        <button action="passportsTable.create"/>
+                        <button action="passportsTable.edit"/>
+                        <button action="passportsTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </tab>
+            <tab id="addressesTab"
+                 caption="Addresses"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <table id="addressesTable"
+                       height="100%"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="street"/>
+                        <column id="postCode"/>
+                        <column id="city"/>
+                    </columns>
+                    <rows datasource="addressesDs"/>
+                    <buttonsPanel>
+                        <button action="addressesTable.create"/>
+                        <button action="addressesTable.edit"/>
+                        <button action="addressesTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </tab>
+            <tab id="employmentsTab"
+                 caption="Employments"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <table id="employmentsTable"
+                       height="100%"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="employer"/>
+                        <column id="employedFrom"/>
+                        <column id="employedUntil"/>
+                    </columns>
+                    <rows datasource="employmentsDs"/>
+                    <buttonsPanel>
+                        <button action="employmentsTable.create"/>
+                        <button action="employmentsTable.edit"/>
+                        <button action="employmentsTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </tab>
+            <tab id="educationsTab"
+                 caption="Educations"
+                 margin="true,false,false,false"
+                 spacing="true">
+                <table id="educationsTable"
+                       height="100%"
+                       width="100%">
+                    <actions>
+                        <action id="create"/>
+                        <action id="edit"/>
+                        <action id="remove"/>
+                    </actions>
+                    <columns>
+                        <column id="school"/>
+                        <column id="graduation"/>
+                    </columns>
+                    <rows datasource="educationsDs"/>
+                    <buttonsPanel>
+                        <button action="educationsTable.create"/>
+                        <button action="educationsTable.edit"/>
+                        <button action="educationsTable.remove"/>
+                    </buttonsPanel>
+                </table>
+            </tab>
+        </tabSheet>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

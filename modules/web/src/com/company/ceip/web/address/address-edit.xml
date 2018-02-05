@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.ceip.web.address.AddressEdit"
+        datasource="addressDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.ceip.web.address">
+    <dsContext>
+        <datasource id="addressDs"
+                    class="com.company.ceip.entity.Address"
+                    view="address-view"/>
+    </dsContext>
+    <dialogMode forceDialog="true"
+                height="AUTO"
+                modal="true"
+                width="600"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="addressDs">
+            <column width="250px">
+                <field property="street"/>
+                <field property="postCode"/>
+                <field property="city"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
