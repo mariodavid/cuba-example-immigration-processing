@@ -23,6 +23,10 @@
             template="com/company/ceip/web/client/client-browse.xml"/>
     <screen id="ceip$Client.edit"
             template="com/company/ceip/web/client/client-edit.xml"/>
+    <!--<screen id="mainWindow"-->
+            <!--template="com/company/ceip/web/screens/ext-mainwindow.xml"/>-->
+
+
     <screen id="mainWindow"
-            template="com/company/ceip/web/screens/ext-mainwindow.xml"/>
+            template="de/diedavids/cuba/userinbox/web/screens/side-mainwindow-with-messages.xml"/>
 </screen-config>
