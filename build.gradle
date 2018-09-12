@@ -51,7 +51,7 @@ cuba {
 
 dependencies {
     appComponent("com.haulmont.cuba:cuba-global:$cubaVersion")
-    appComponent("de.diedavids.cuba.userinbox:user-inbox-global:0.1")
+    appComponent("de.diedavids.cuba.userinbox:user-inbox-global:0.2.0-SNAPSHOT")
 
 }
 
